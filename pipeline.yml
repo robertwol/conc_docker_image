@@ -1,22 +1,22 @@
 ---
-jobs:  
+jobs:
 - name: build-docker-image
   public: true
   serial: true
   plan:
-  - get: git-concourse-build-docker-image
+  - get: conc_docker_image
     trigger: true
   - put: docker-image
     params:
-      build: git-concourse-build-docker-image/ci
+      build: conc_docker_image
 
-resources:  
-- name: git-concourse-build-docker-image
+resources:
+- name: conc_docker_image
   type: git
   source:
-    uri: git repo uri
+    uri: https://github.com/robertwol/conc_docker_image.git
     branch: master
-    private_key: {{github-private-key}}
+#    private_key: {{github-private-key}}
 
 - name: docker-image
   type: docker-image
@@ -24,4 +24,4 @@ resources:
     email: {{docker-hub-email}}
     username: {{docker-hub-username}}
     password: {{docker-hub-password}}
-    repository: {{docker-create-concourse-go-image}}
+    repository: {{docker-hub-image-resource}}
