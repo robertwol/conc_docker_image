@@ -8,7 +8,7 @@ jobs:
     trigger: true
   - put: docker-image
     params:
-      build: conc_docker_image
+      build: docker_file
 
 resources:
 - name: docker_file
