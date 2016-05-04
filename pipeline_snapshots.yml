@@ -12,8 +12,7 @@ jobs:
       platform: linux
       image: docker:///robertwol/hybdocker
       run:
-        path: aws
-        args: [--version]
+        path: resource-git/run.sh
 
 resources:
 - name: resource-git
