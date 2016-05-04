@@ -23,5 +23,5 @@ resources:
   source:
     email: {{docker-hub-email}}
     username: {{docker-hub-username}}
-    password: {{docker-hub-password}}
+    #password: {{docker-hub-password}}
     repository: {{docker-hub-image-resource}}
