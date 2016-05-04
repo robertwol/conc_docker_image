@@ -4,22 +4,24 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: conc_docker_image
+  - get: docker_file
     trigger: true
   - put: docker-image
     params:
       build: conc_docker_image
 
 resources:
-- name: conc_docker_image
+- name: docker_file
   type: git
   source:
     uri: https://github.com/robertwol/conc_docker_image.git
     branch: master
+    paths: [Dockerfile]
 
 - name: docker-image
   type: docker-image
   source:
     email: {{docker-hub-email}}
     username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
     repository: {{docker-hub-image-resource}}
