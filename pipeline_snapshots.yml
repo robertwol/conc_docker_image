@@ -1,0 +1,27 @@
+---
+jobs:
+- name: remove_snapshots
+  public: true
+  serial: true
+  plan:
+  - get: resource-git
+  - get: timer
+    trigger: true
+  - task: remove-snapshot-task
+    config:
+      platform: linux
+      image: docker:///robertwol/hybdocker
+      run:
+        path: aws
+        args: [--version]
+
+resources:
+- name: resource-git
+  type: git
+  source:
+    uri: https://github.com/robertwol/conc_docker_image.git
+
+- name: timer
+  type: time
+  source:
+    interval: 1m
