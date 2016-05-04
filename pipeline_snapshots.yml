@@ -23,4 +23,4 @@ resources:
 - name: timer
   type: time
   source:
-    interval: 1m
+    interval: 10m
