@@ -7,18 +7,25 @@ jobs:
   - get: resource-git
 #  - get: timer
 #    trigger: true
-#  - task: remove-snapshot-task
-#    config:
-#      platform: linux
-#      image: docker:///robertwol/hybdocker
-#      run:
-#        path: resource-git/run.sh
+  - task: remove-snapshot-task
+    config:
+      platform: linux
+      image: docker:///robertwol/hybdocker
+      inputs:
+      - name: resource-git
+        path: .
+      run:
+        path: ./run.sh
+      #run:
+      #  path: /resource-git/run.sh
+       #path: ls
 
 resources:
 - name: resource-git
   type: git
   source:
     uri: https://github.com/robertwol/conc_docker_image.git
+    branch: master
 
 #- name: timer
 # type: time
