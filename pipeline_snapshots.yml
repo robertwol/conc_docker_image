@@ -5,14 +5,14 @@ jobs:
   serial: true
   plan:
   - get: resource-git
-  - get: timer
-    trigger: true
-  - task: remove-snapshot-task
-    config:
-      platform: linux
-      image: docker:///robertwol/hybdocker
-      run:
-        path: resource-git/run.sh
+#  - get: timer
+#    trigger: true
+#  - task: remove-snapshot-task
+#    config:
+#      platform: linux
+#      image: docker:///robertwol/hybdocker
+#      run:
+#        path: resource-git/run.sh
 
 resources:
 - name: resource-git
