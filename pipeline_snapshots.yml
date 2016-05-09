@@ -11,13 +11,14 @@ jobs:
     config:
       platform: linux
       image: docker:///robertwol/hybdocker
-      inputs:
-      - name: resource-git
-        path: .
-      run:
-        path: ./run.sh
+      #inputs:
+      #- name: resource-git
+      #    path: .
       #run:
-      #  path: /resource-git/run.sh
+      #  path: ./run.sh
+      run:
+        path: resource-git/run.sh
+        args: "test"
        #path: ls
 
 resources:
