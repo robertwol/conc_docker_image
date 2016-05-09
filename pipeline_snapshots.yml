@@ -20,7 +20,7 @@ resources:
   source:
     uri: https://github.com/robertwol/conc_docker_image.git
 
-- name: timer
-  type: time
-  source:
-    interval: 10m
+#- name: timer
+# type: time
+#  source:
+#    interval: 10m
