@@ -11,6 +11,10 @@ RUN dpkg -i /tmp/cf-cli.deb
 # jq
 RUN apt-get -y install jq
 
+# yaml2json (and npm)
+RUN apt-get -y install npm && \
+    npm install -g yaml2json
+
 # AWS CLI
 # RUN python --version
 RUN apt-get -y install python && \
