@@ -12,7 +12,7 @@ jobs:
       platform: linux
       image: docker:///robertwol/hybdocker
       inputs:
-      - name: resource-git
+        - name: resource-git
 ##        path: .
       run:
 ##        path: ./run.sh
@@ -20,6 +20,12 @@ jobs:
       #run:
       #  path: /resource-git/run.sh
        #path: ls
+        args: [Test]
+        #- -exc
+        #- |
+      #    whoami
+      run:
+        path: resource-git/vpc_disks_cleanup2.sh
         args: [Test]
 
 resources:

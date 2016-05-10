@@ -8,6 +8,9 @@ RUN apt-get update && \
 ADD https://cli.run.pivotal.io/stable?release=debian64&version=6.14.0&source=github-rel /tmp/cf-cli.deb
 RUN dpkg -i /tmp/cf-cli.deb
 
+# jq
+RUN apt-get -y install jq
+
 # AWS CLI
 # RUN python --version
 RUN apt-get -y install python && \
