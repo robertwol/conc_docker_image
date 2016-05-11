@@ -14,12 +14,15 @@ RUN apt-get -y install jq
 # yaml2json (and npm)
 #RUN apt-get -y install npm && \
 #    npm install -g yaml2json
-RUN apt-get -y install golang bzr && \
-    mkdir /root/golang && \
-    echo "export GOPATH=/root/golang" >> ~/.profile && \
-    echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.profile
+RUN apt-get -y install golang bzr
+RUN mkdir /root/golang
+RUN echo "export GOPATH=/root/golang" >> ~/.profile
+RUN echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.profile
     #&& \
-    #go get github.com/bronze1man/yaml2json
+ENV GOPATH /root/golang
+ENV PATH $PATH:$GOPATH/bin
+
+RUN go get github.com/bronze1man/yaml2json
 
 # AWS CLI
 # RUN python --version
