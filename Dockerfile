@@ -17,8 +17,9 @@ RUN apt-get -y install jq
 RUN apt-get -y install golang bzr && \
     mkdir /root/golang && \
     echo "export GOPATH=/root/golang" >> ~/.profile && \
-    echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.profile && \
-    go get github.com/bronze1man/yaml2json
+    echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.profile
+    #&& \
+    #go get github.com/bronze1man/yaml2json
 
 # AWS CLI
 # RUN python --version
